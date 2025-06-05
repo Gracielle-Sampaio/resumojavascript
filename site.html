@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang ="pt-br">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumo JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="sortear()">
+<div class="cor">
+  <button onclick="clicou()">Clique aqui</button>
+</div>
+<div class="nome">
+  <button onclick="nome()">Qual seu nome?</button>
+</div>
+<div class="caixa">
+  <button onclick="caixa()">Digite uma tarefa:</button>
+  <section id="resultado">
+    <p> vai aparecer aqui</p>
+  </section>
+</div>
+<div class-"dobro">
+   <button onclick="dobro()">Digite um número:</button>
+  <section id="resdobro">
+  </section>
+</div>
+<div class-"soma">
+   <button onclick="soma()">Iniciar soma</button>
+  <section id="resoma">
+  </section>
+</div>
+<div class-"media">
+   <button onclick="media()">Calcular média</button>
+  <section id="resmedia">
+  </section>
+</div>
+<div class-"calculos">
+   <button onclick="calcular()">Calcular</button>
+  <section id="calculos">
+  </section>
+</div>
+<div class-"tabuada">
+
+   <button onclick="tabuada()">vamos multiplicar</button>
+
+  <section id="tabuada">
+
+  </section>
+
+</div>
+<div class="contador">
+  <button onclick="contar()"> Clique aqui</button>
+  <button onclick="zerar()"> zerar o contador</button>
+  
+  <section id="rescontador">
+  <p>O contador esta com <mark>0</mark> cliques.</p>
+  </section>
+</div>
+<div class="botoes">
+  <button onclick="acao1()">Opção 1</button>
+  <button onclick="acao2()">Opcão 2</button>
+  <button onclick="acao3()">Opção 3</button>
+  <section id="acoes">
+    
+  </section>
+</div>
+<div class="parouimpar">
+   <button onclick="parimpar()">É par ou impar?</button>
+<section id="parouimpar">
+    
+  </section>
+</div>
+<div class="Maior">
+  <button onclick="maior()">Qual o maior valor?</button>
+<section id="maior">
+    
+  </section>
+</div>
+<div class="agora">
+<button onclick="info()">Que dia é?</button>
+<section id="resinfo">
+    
+  </section>
+
+</div>
+<div class="idade">
+<button onclick="calidade()">Qual a sua idade?</button>
+<section id="residade">
+    
+  </section>
+
+</div>
+
+<div class="sorteio">
+<button onclick="sorteio()">Clique para gerar um número!</button>
+<button onclick="limpar()">Limpar</button>
+<section id="numeros">
+    <p>Cada vez que você apertar o botão acima, vou gerar um número de 1 e 100.</p>
+  </section>
+
+</div>
+
+<div class="advinhe">
+<button onclick="jogar()" id="botao">Tente advinhar!</button>
+<section id="advinha">
+    <p>Já pensei em um número de 1 e 100. Agora é sua vez!</p>
+  </section>
+
+</div>
+<div class="multiplos">
+<button onclick="calc()" id="calc">Clique para calcular</button>
+<section id="multiplicar">
+   
+  </section>
+</div>
+<div class="estacao">
+<button onclick="estacao()" id="estacao">Em qual estação estamos?</button>
+<section id="qualesta">
+   
+  </section>
+</div>
+
+<div class="contando">
+<button onclick="contar()" id="contar">Vamos contar: </button>
+<section id="contador">
+   
+  </section>
+</div>
+
+<div class="regresso">
+<button onclick="regressivo()"> Contagem regressiva!</button>
+<section id="regresso">
+   
+  </section>
+</div>
+
+<div class="formulario">
+<h3>Escolha um número positivo</h3>
+<section id="entrada">
+   <form action="#" method="get">
+        <label for="fnum">Digite aqui um número</label>
+        <input type="number" name="num" id="fnum" placeholder="Apenas números positivos">
+        <input type="submit" value="Contar" formaction="javascript:contagem()">
+   </form>
+  </section>
+<section id="resultadoform"></section>
+</div>
+
+<div class="inteligente">
+<h3>Escolha o inicio e o fim da contagem</h3>
+<section id="entradas">
+   <form action="#" method="get">
+        <p>
+           <label for="fn1">Valor inicial</label>
+           <input type="number" name="n1" id="fn1" placeholder="Inicio da Contagem">
+        </p>
+        <p>
+           <label for="fn2">Valor final</label>
+           <input type="number" name="n2" id="fn2" placeholder="Fim da Contagem">
+        </p>
+        <p><input type="submit" value="Contagem" formaction="javascript:contageminteligente()"></p>
+   </form>
+  </section>
+<section id="fimdacontagem"></section>
+</div>
+
+<div class="fatorial">
+<p>Escolha um número de 1 a 21</p>
+<section id="fatoriais">
+   <form action="#" method="get">
+        <p>
+           <label for="n1">Número</label>
+           <input type="number" name="numero" id="numero" max="21" min="1" placeholder="Número: ">
+           <input type="submit" value="Fatorial" formaction="javascript:fatorial()">
+        </p>
+   </form>
+  </section>
+<section id="numfatorial"></section>
+</div>
+
+
+
+<script>
+let contador = 0;
+let rescontador = document.querySelector('section#rescontador');
+
+let acoes = window.document.getElementById('acoes');
+
+
+
+function clicou() {
+  window.alert("Olá, mundo!");
+  document.querySelector(".cor").style.backgroundColor = "black";
+  console.log("clicou");
+}
+function nome() {
+  let nome = window.prompt("Digite seu nome:");
+  window.alert(`Olá, ${nome}! É um prazer te conhecer!`);
+}
+function caixa() {
+  let texto = window.prompt("Escreva uma tarefa:");
+  let res = window.document.getElementById('resultado');
+  res.innerHTML = `<p>Sua tarefa: ${texto} &#x1F596</p>`
+}
+function dobro(){
+  let n1 = Number(window.prompt('Digite um número: '));
+  let resdobro = document.querySelector('section#resdobro');
+  
+  resdobro.innerHTML = `<p> O dobro de ${n1} é ${n1*2} e a metade é ${n1/2}!</p>`
+}
+function soma(){
+  let n1 = Number(window.prompt('Digite um número: '));
+  let n2 = Number(window.prompt('Digite outro número:'));
+  soma = n1 + n2;
+  let resoma = document.querySelector('section#resoma');
+  
+  resoma.innerHTML = `<p>A soma entre <mark>${n1}</mark> e <mark>${n2}</mark> é igual a <strong>${soma}</strong>!</p>`
+}
+function media(){
+ let nome = window.prompt('Qual o nome do aluno?');
+ let n1 = Number(window.prompt(`Qual foi a primeira nota de ${nome}?`));
+ let n2 = Number(window.prompt(`Além de ${n1}, qual foi a segunda nota de ${nome}?`));
+ 
+ med = (n1 + n2)/2;
+ let msg
+ 
+ if (med >=6){
+   msg ="Seu aluno está de parabéns!"
+ } else{
+   msg = "Seu aluno precisa estudar mais!"
+ }
+ 
+ let resmedia = document.getElementById('resmedia')
+ resmedia.innerHTML = `<p>Calculando a Média final de <mark>${nome}</mark>.</p>`
+ resmedia.innerHTML += `<p>As notas obtidas foram <mark>${n1} e ${n2}</mark>.</p>`
+ resmedia.innerHTML += `<p>A Média final será <mark>${med}</mark>.</p>`
+ resmedia.innerHTML += `<p><strong>${msg}</strong></p>`
+}
+function calcular(){
+  let num = Number(window.prompt('digite um número:'));
+  
+  let calculos = document.querySelector('section#calculos')
+  calculos.innerHTML = `O número que ira ser calculado aqui é <strong> ${num} </strong>`
+  calculos.innerHTML += `<p>O seu valor absoluto é ${Math.abs(num)}</p>`
+  calculos.innerHTML += `<p>A sua parte inteira é ${Math.trunc(num)}</p>`
+  calculos.innerHTML += `<p>O valor inteiro mais próximo é ${Math.round(num)}</p>`
+  calculos.innerHTML += `<p>A sua raiz quadrada é ${Math.sqrt(num)}</p>`
+  calculos.innerHTML += `<p>A sua raiz cúbica é ${Math.cbrt(num)}</p>`
+  calculos.innerHTML += `<p>O valor de ${num}<sup>2</sup> é ${Math.pow(num, 2)}</p>`
+  calculos.innerHTML += `<p>O valor de ${num}<sup>3</sup> é ${Math.pow(num, 3)}</p>`
+}
+function tabuada(){
+
+  let n1 = Number(window.prompt('digite um número:'));
+  let tabuada = document.querySelector('section#tabuada')
+
+  tabuada.innerHTML = `O número da tabuada calculado aqui é <strong> ${n1}</strong>`
+  let c = 1
+  while (c <= 10){
+    tabuada.innerHTML += `${n1} x ${c} = <strong>${n1 * c} \n</strong>`
+    c ++
+}
+}
+function contar(){
+  contador++
+  rescontador.innerHTML= `<p>O contador esta com <mark>${contador}</mark> cliques.</p>`
+}
+function zerar(){
+  contador = 0
+  rescontador.innerHTML = null
+}
+function acao1(){
+  window.alert("Você clicou na 1º Opção")
+  console.log("clicou")
+  acoes.innerHTML = '<p>Clicou no primeiro botão</p>'
+ }
+function acao2(){
+  window.alert("Você clicou na 2º Opção")
+  acoes.innerHTML = '<p> Você escolheu a 2º opção</p>'
+}
+function acao3(){
+  window.alert("Você clicou na 3º Opção")
+  acoes.innerHTML = '<p> Você escolheu a 3º opção</p>'
+}
+function parimpar(){
+  let num = Number(window.prompt('Digite um número:'))
+  let tipo
+
+  if (num %2 ==0){
+     tipo = '<strong>É PAR</strong>'
+} else{
+    tipo = '<strong>É ÍMPAR</strong>'
+}
+
+  let parouimpar = document.querySelector('section#parouimpar')
+  parouimpar.innerHTML = `<p> O número ${num} <mark>${tipo}!</mark></p>`
+}
+function maior(){
+  let n1 = Number(window.prompt('Digite um número: '))
+  let n2 = Number(window.prompt('Digite outro número: '))
+
+  let qualmaior = document.querySelector('section#maior')
+
+  if (n1 > n2){
+     qualmaior.innerHTML = `<p> Analisando os valores <mark>${n1}</mark> e <mark>${n2}</mark>, o maior valor é <strong>${n1}</strong> </p>`
+} else if( n1 < n2) {
+     qualmaior.innerHTML = `<p> Analisando os valores <mark>${n1}</mark> e <mark>${n2}</mark>, o maior valor é <strong>${n2}</strong> </p>`
+} else{
+qualmaior.innerHTML = `<p> Analisando os valores <mark>${n1}</mark> e <mark>${n2}</mark>, ambos são <strong>IGUAIS</strong> </p>`
+}
+}
+
+function info(){
+  let meses = new Array('Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez')
+  let diasemana = new Array ('Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb')
+  let agora = new Date
+  let resinfo = document.getElementById('resinfo')
+
+  let dia = agora.getDate()
+  let mes = agora.getMonth()
+  let ano = agora.getFullYear()
+  let sem = agora.getDay()
+  let hora = agora.getHours()
+  let min = agora.getMinutes()
+  let seg = agora.getSeconds()
+
+  
+  resinfo.innerHTML += `<p> Dia: <mark> ${dia} </mark></p>`
+  resinfo.innerHTML += `<p> Mes: <mark> ${meses[mes]} </mark></p>`
+  resinfo.innerHTML += `<p> Ano: <mark> ${ano} </mark></p>`
+  resinfo.innerHTML += `<p> Hora: <mark> ${hora} </mark></p>`
+  resinfo.innerHTML += `<p> Minutos: <mark> ${min} </mark></p>`
+  resinfo.innerHTML += `<p> Segundos: <mark> ${seg} </mark></p>`
+}
+
+function calidade(){
+  let agora = new Date
+  let ano = agora.getFullYear()
+
+  let nasc = Number(window.prompt('Em que ano você nasceu?'))
+  let idade = ano-nasc
+
+  let residade = document.getElementById('residade')
+  residade.innerHTML = `<p> Quem nasceu em ${nasc} vai completar <strong>${idade}</strong> anos em ${ano}</p>`
+}
+
+function sorteio(){
+  let min = 1
+  let max = 100
+  let dif = max - min
+  aleatorio = Math.random()
+  let num = min + Math.trunc(dif * aleatorio)
+
+  let numeros = document.getElementById('numeros')
+  numeros.innerHTML = `<p> Acabei de pensar no número <mark>${num}</mark></p>`
+  
+}
+function limpar(){
+  let numeros = document.getElementById('numeros')
+  numeros.innerHTML = `<p>Cada vez que você apertar o botão acima, vou gerar um número de 1 e 100.</p>`
+}
+
+let advinha = document.querySelector('section#advinha')
+let computador = 0
+let jogador = 0
+
+function sortear(){
+  let min = 1
+  let max = 100
+  let dif = max - min
+  aleatorio = Math.random()
+  computador = min + Math.trunc(dif * aleatorio)
+  
+}
+
+function jogar(){
+ jogador = Number(window.prompt('Qual número você pensou?'))
+ 
+ if (jogador < computador){
+  advinha.innerHTML = `<p> Você falou ${jogador}. Meu número é <strong>MAIOR</strong>!</p>`
+} else if (jogador > computador){
+  advinha.innerHTML = `<p> Você falou ${jogador}. Meu número é <strong>MENOR</strong>!</p>`
+}else if (jogador == computador){
+  advinha.innerHTML = `<p> <strong>PARABÉNS</strong>Você acertou! Eu tinha pensador nesse valor ${computador}</p>`
+  document.getElementById('botao').style.visibility = 'hidden'
+}
+}
+function calc(){
+  let n1 = Number(prompt('Primeiro valor: '))
+  let n2 = Number(prompt('Segundo valor: '))
+  let op = Number(prompt(`Valores informados: ${n1} e ${n2}. \nO que vamos fazer? \n[1] Somar \n[2] Subtrair \n[3] Multiplicar \n[4] Dividir`))
+
+  let multiplicar = document.getElementById('multiplicar')
+  multiplicar.innerHTML = `<p>Calculando...</p>`
+
+  switch (op){
+  
+  case 1:
+     multiplicar.innerHTML += `<p>${n1} + ${n2} = <strong>${n1+n2}</strong></p>`
+     break
+  case 2:
+     multiplicar.innerHTML += `<p>${n1} - ${n2} = <strong>${n1-n2}</strong></p>`
+     break
+  case 3:
+     multiplicar.innerHTML += `<p>${n1} x ${n2} = <strong>${n1*n2}</strong></p>`
+     break
+  case 4:
+     multiplicar.innerHTML += `<p>${n1} / ${n2} = <strong>${(n1+n2).toLocalString('pt-BR')}</strong></p>`
+     break
+  default:
+     multiplicar.innerHTML += `<p> OPÇÃO INVÁLIDA! Você Digitou ${n1} e ${n2} \n mas não digitou o que gostaria de fazer,\n escolha um dos números de 1 a 4</p>`
+     break
+}
+}
+
+function estacao(){
+   let mes = prompt('Digite o mês em extenso(ex: Setembro)')
+   qualesta = document.querySelector('section#qualesta')
+   let estação
+
+   switch (mes.toUpperCase()){
+     case 'JANEIRO': case 'FEVEREIRO': case 'MARÇO':
+        estação = 'INVERNO'
+        break
+     case 'ABRIL': case 'MAIO': case 'JUNHO':
+        estação = 'PRIMAVERA'
+        break
+     case 'JULHO': case 'AGOSTO': case 'SETEMBRO':
+        estação = 'VERÃO'
+        break
+     case 'OUTUBRO': case 'NOVEMBRO': case 'DEZEMBRO':
+        estação = 'OUTONO'
+        break
+     default:
+        estação = 'INDEFINIDA'
+        break
+}
+    	qualesta.innerHTML = `<p>No mês de <mark>${mes}</mark>, estamos na estação: <mark><strong>${estação}</strong></mark></p>`
+}
+
+function contar(){
+   let contador = document.getElementById('contador')
+
+   contador.innerHTML += `Contando de 1 até 10...` 
+   
+   let cont = 1
+   while(cont <= 10){
+      if (cont % 2 == 0){
+        contador.innerHTML += `<mark><strong>${cont}</mark></strong> &#x1F449;`
+      } else {
+        contador.innerHTML += `${cont} &#x1F449;`
+      }
+      
+      cont ++
+}
+   contador.innerHTML += '&#x1F3C1'
+}
+
+function regressivo(){
+   let regresso = document.getElementById('regresso')
+
+   regresso.innerHTML += `Contando de 10 até 0...` 
+   
+   let cont = 10
+   while(cont >= 1){
+      if (cont % 2 == 0){
+        regresso.innerHTML += `<mark><strong>${cont}</mark></strong> &#x1F449;`
+      } else {
+        regresso.innerHTML += `${cont} &#x1F449;`
+      }
+      
+      cont --
+}
+   regresso.innerHTML += '&#x1F3C1'
+}
+
+function contagem(){
+  let resultadoform = document.getElementById('resultadoform')
+  let num = Number(document.getElementById('fnum').value)
+  resultadoform.innerHTML += `<p>Contando de 0 até ${num}</p>`
+
+  let cont = 0
+  while (cont <= num){
+    resultadoform.innerHTML += `${cont} &#x1F449;`
+    cont ++
+}
+  resultadoform.innerHTML += '&#x1F3C1;'
+}
+function contageminteligente(){
+  let fimdacontagem = document.getElementById('fimdacontagem')
+  let n1 = Number(document.getElementById('fn1').value)
+  let n2 = Number(document.getElementById('fn2').value)
+  let cont
+
+  fimdacontagem.innerHTML += `<p>Contando de ${n1} até ${n2}</p>`
+  if (n1<n2){
+    cont = n1
+    while (cont <= n2){
+       fimdacontagem.innerHTML += `${cont} &#x1F449;`
+       cont ++
+    }
+  } else if (n2< n1){
+    cont = n1
+    while ( cont >= n2){
+       fimdacontagem.innerHTML += `${cont} &#x1F449;`
+       cont --
+    }
+    }else{
+       fimdacontagem.innerHTML += `Não é possivel contar, pois os números são iguais!`
+  }
+  
+  fimdacontagem.innerHTML += ' &#x1F3C1;'
+}
+
+function fatorial(){
+   let numfatorial = document.getElementById('numfatorial')
+   let n = Number(document.getElementById('numero').value)
+
+   numfatorial.innerHTML += `<p>Calculando ${n}</p>`
+  
+   let c = n
+   let fat = 1
+   
+   while(c> 1){
+      numfatorial.innerHTML += `${c} x`
+      fat *= c
+      c --
+   }
+   numfatorial.innerHTML += `1 = <strong>${fat.toLocalString('pt-BR')}</strong>`
+}
+
+</script>
+</body>
+</html>
